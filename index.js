@@ -1,5 +1,5 @@
 const app = require("./app");
-const PORT = 3001;
+const PORT = 8080;
 
 app.listen(PORT, () => {
   console.log(`server live on port ${PORT}`);

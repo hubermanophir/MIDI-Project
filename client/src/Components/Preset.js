@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Preset({ id, name, number, presetNumber, scene }) {
+export default function Preset({ key, id, name, number, presetNumber, scene }) {
   return (
-    <div id={id}>
-      <div>Name: {name}</div>
-      <div>Keyboard Number: {number}</div>
+    <div className="preset" id={id}>
+      <h3>{number}</h3>
+      <div className="name">{name}</div>
       <div>
         <span>Preset Number: </span>
         <span>{presetNumber}</span>{" "}

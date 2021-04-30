@@ -2,7 +2,89 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: #395f60;
+}
+
 h1 {
   text-align: center;
+  font-size: 4em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.input {
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+button {
+  font-size: 1.2em;
+}
+
+#input-container {
+  width: 20em;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#favorite-container {
+  width: 80%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.preset {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  width: 14em;
+  text-align: center;
+  margin-top: 1em;
+  font-size: 1.7em;
+  padding-bottom: 1em;
+  color: white;
+  background-color: #9b3804;
+}
+
+.name {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  border-style: solid;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  border-radius: 50%;
+  background-color: #de6b07;
 }
 /*# sourceMappingURL=App.css.map */

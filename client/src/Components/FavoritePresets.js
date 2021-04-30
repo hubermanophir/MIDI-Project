@@ -2,9 +2,8 @@ import React from "react";
 import Preset from "./Preset";
 
 export default function FavoritePresets({ setFavArray, favArray }) {
-
   return (
-    <div>
+    <div id="favorite-container">
       {favArray[0] &&
         favArray.map((fave, i) => {
           return (

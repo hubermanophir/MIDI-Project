@@ -68,28 +68,34 @@ export default function Main() {
   return (
     <div>
       <h1>My axe fx 2 MIDI Controller</h1>
-      <input
-        placeholder="preset name"
-        onChange={(e) => nameHandler(e.target.value)}
-        type="text"
-      />
-      <input
-        placeholder="number"
-        onChange={(e) => numberHandler(e.target.value)}
-        type="text"
-      />
-      <input
-        placeholder="preset number"
-        onChange={(e) => presetHandler(e.target.value)}
-        type="text"
-      />
-      <input
-        placeholder="scene"
-        onChange={(e) => sceneHandler(e.target.value)}
-        type="text"
-      />
+      <div id="input-container">
+        <input
+          className="input"
+          placeholder="preset name"
+          onChange={(e) => nameHandler(e.target.value)}
+          type="text"
+        />
+        <input
+          className="input"
+          placeholder="number"
+          onChange={(e) => numberHandler(e.target.value)}
+          type="text"
+        />
+        <input
+          className="input"
+          placeholder="preset number"
+          onChange={(e) => presetHandler(e.target.value)}
+          type="text"
+        />
+        <input
+          className="input"
+          placeholder="scene"
+          onChange={(e) => sceneHandler(e.target.value)}
+          type="text"
+        />
 
-      <button onClick={onClickHandler}>Add preset</button>
+        <button onClick={onClickHandler}>Add preset</button>
+      </div>
       <FavoritePresets setFavArray={setFavArray} favArray={favArray} />
     </div>
   );

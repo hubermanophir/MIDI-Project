@@ -13,7 +13,6 @@ app.post("/change", async (req, res) => {
   const { presetNumber, scene } = req.body;
   try {
     await main(presetNumber, scene);
-    // await main(11, 1);
     return res.send("success");
   } catch (err) {
     console.log(err);

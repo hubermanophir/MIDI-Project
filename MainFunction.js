@@ -7,6 +7,5 @@ function main(presetNumber, scene) {
     axeFxIn.sendControlChange(34, scene - 1);
   });
 }
-// main(4, 5);
 
 module.exports = { main };

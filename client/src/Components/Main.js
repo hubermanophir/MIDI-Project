@@ -16,7 +16,12 @@ export default function Main() {
     })();
     document.addEventListener("keypress", async (e) => {
       const elem = document.getElementById(`preset ${e.key}`);
+      const marked = document.querySelector(".marked");
+      if (marked) {
+        marked.classList.remove("marked");
+      }
       if (elem) {
+        elem.classList.add("marked");
         let presetNum = Number(elem.childNodes[2].childNodes[1].innerText);
         let scene = Number(elem.childNodes[3].childNodes[1].innerText);
         const obj = {
@@ -31,10 +36,6 @@ export default function Main() {
       }
     });
   }, []);
-
-  const removeQuotes = (str) => {
-    return str.replace(/\"/g, "");
-  };
 
   const onClickHandler = async () => {
     const obj = {

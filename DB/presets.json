@@ -5,14 +5,14 @@
   { "name": "insane w/ wah", "number": 3, "presetNumber": 5, "scene": 3 },
   { "name": "Polyphia", "number": 4, "presetNumber": 41, "scene": 1 },
   { "name": "Aaron Marshall", "number": 5, "presetNumber": 40, "scene": 1 },
-  { "name": "Plexi godnes", "number": 6, "presetNumber": 26, "scene": 1 },
-  { "name": "theDooo", "number": 7, "presetNumber": 21, "scene": 1 },
   {
     "name": "Aaron Marshall 5semi",
-    "number": 8,
+    "number": 6,
     "presetNumber": 40,
     "scene": 4
   },
+  { "name": "theDooo", "number": 7, "presetNumber": 21, "scene": 1 },
+  { "name": "Plexi godnes", "number": 8, "presetNumber": 26, "scene": 1 },
   {
     "name": "Mesa TriAxis Shimmer",
     "number": 9,

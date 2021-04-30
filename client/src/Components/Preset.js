@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Preset({ key, id, name, number, presetNumber, scene }) {
+export default function Preset({ id, name, number, presetNumber, scene }) {
   return (
     <div className="preset" id={id}>
       <h3>{number}</h3>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FavoritePresets from "./FavoritePresets";
 
@@ -7,6 +7,34 @@ export default function Main() {
   const [scene, setScene] = useState();
   const [name, setName] = useState();
   const [bindKey, setBindKey] = useState();
+  const [favArray, setFavArray] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await axios.get("http://localhost:8080/presets");
+      setFavArray(res.data);
+    })();
+    document.addEventListener("keypress", async (e) => {
+      const elem = document.getElementById(`preset ${e.key}`);
+      if (elem) {
+        let presetNum = Number(elem.childNodes[2].childNodes[1].innerText);
+        let scene = Number(elem.childNodes[3].childNodes[1].innerText);
+        const obj = {
+          presetNumber: presetNum,
+          scene: scene,
+        };
+        try {
+          await axios.post("http://localhost:8080/change", obj);
+        } catch (err) {
+          console.log(err.message);
+        }
+      }
+    });
+  }, []);
+
+  const removeQuotes = (str) => {
+    return str.replace(/\"/g, "");
+  };
 
   const onClickHandler = async () => {
     const obj = {
@@ -60,7 +88,7 @@ export default function Main() {
       />
 
       <button onClick={onClickHandler}>Click to change preset</button>
-      <FavoritePresets />
+      <FavoritePresets setFavArray={setFavArray} favArray={favArray} />
     </div>
   );
 }

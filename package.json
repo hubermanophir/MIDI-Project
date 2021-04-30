@@ -1,0 +1,23 @@
+{
+  "name": "MIDI-Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubermanophir/MIDI-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hubermanophir/MIDI-Project/issues"
+  },
+  "homepage": "https://github.com/hubermanophir/MIDI-Project#readme",
+  "dependencies": {
+    "webmidi": "^3.0.0-alpha.5"
+  }
+}

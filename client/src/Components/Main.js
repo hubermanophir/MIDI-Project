@@ -38,11 +38,13 @@ export default function Main() {
 
   const onClickHandler = async () => {
     const obj = {
+      name: name,
+      number: Number(bindKey),
       presetNumber: Number(preset),
       scene: Number(scene),
     };
     try {
-      await axios.post("http://localhost:8080/change", obj);
+      await axios.post("http://localhost:8080/preset", obj);
     } catch (err) {
       console.log(err.message);
     }
@@ -87,7 +89,7 @@ export default function Main() {
         type="text"
       />
 
-      <button onClick={onClickHandler}>Click to change preset</button>
+      <button onClick={onClickHandler}>Add preset</button>
       <FavoritePresets setFavArray={setFavArray} favArray={favArray} />
     </div>
   );

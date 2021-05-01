@@ -1,15 +1,15 @@
 [
   { "name": "Dumble strat neck", "number": 0, "presetNumber": 12, "scene": 1 },
-  { "name": "Dumble Lead", "number": 1, "presetNumber": 36, "scene": 2 },
-  { "name": "insane", "number": 2, "presetNumber": 5, "scene": 2 },
-  { "name": "insane w/ wah", "number": 3, "presetNumber": 5, "scene": 3 },
+  { "name": "Dumble Lead", "number": 1, "presetNumber": 36, "scene": 1 },
+  { "name": "insane", "number": 2, "presetNumber": 5, "scene": 1 },
+  { "name": "Steve vai", "number": 3, "presetNumber": 14, "scene": 1 },
   { "name": "Polyphia", "number": 4, "presetNumber": 41, "scene": 1 },
   { "name": "Aaron Marshall", "number": 5, "presetNumber": 40, "scene": 1 },
   {
-    "name": "Aaron Marshall 5semi",
+    "name": "NJ AC20 Strat",
     "number": 6,
-    "presetNumber": 40,
-    "scene": 4
+    "presetNumber": 35,
+    "scene": 1
   },
   { "name": "theDooo", "number": 7, "presetNumber": 21, "scene": 1 },
   { "name": "Plexi godnes", "number": 8, "presetNumber": 26, "scene": 1 },

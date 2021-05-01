@@ -8,13 +8,10 @@ export default function Main() {
   const [name, setName] = useState();
   const [bindKey, setBindKey] = useState();
   const [favArray, setFavArray] = useState([]);
+  const [isPreset, setIsPreset] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      const res = await axios.get("http://localhost:8080/presets");
-      setFavArray(res.data);
-    })();
-    document.addEventListener("keypress", async (e) => {
+  async function presetFunc(e) {
+    if (e.which >= 48 && e.which <= 57) {
       const elem = document.getElementById(`preset ${e.key}`);
       const marked = document.querySelector(".marked");
       if (marked) {
@@ -34,8 +31,52 @@ export default function Main() {
           console.log(err.message);
         }
       }
-    });
+    }
+  }
+
+  async function sceneFunc(e) {
+    if (e.which >= 48 && e.which <= 57) {
+      const sceneNumber = e.key;
+      const obj = {
+        scene: sceneNumber,
+      };
+      try {
+        await axios.post("http://localhost:8080/scene", obj);
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
+  }
+
+  function spaceClick(e) {
+    if (e.which === 32) {
+      setIsPreset((prev) => !prev);
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      const res = await axios.get("http://localhost:8080/presets");
+      setFavArray(res.data);
+    })();
+    document.addEventListener("keypress", presetFunc);
+    document.addEventListener("keypress", spaceClick);
+    // document.removeEventListener("keypress", presetFunc);
   }, []);
+
+  // useEffect(() => {
+  //   console.log("switch");
+  //   if (isPreset) {
+  //     document.removeEventListener("keypress", presetFunc);
+  //     document.addEventListener("keypress", presetFunc);
+
+  //     // console.log(isPreset);
+  //     // document.removeEventListener("keypress", sceneFunc);
+  //   } else {
+  //     // console.log(isPreset);
+  //     // document.addEventListener("keypress", sceneFunc);
+  //   }
+  // }, [isPreset]);
 
   const onClickHandler = async () => {
     const obj = {
@@ -69,6 +110,7 @@ export default function Main() {
   return (
     <div>
       <h1>My axe fx 2 MIDI Controller</h1>
+      {isPreset ? <div>space bar is on</div> : <div>space bar is off</div>}
       <div id="input-container">
         <input
           className="input"

@@ -8,11 +8,11 @@ function main(presetNumber, scene) {
   });
 }
 
-function scene(scene) {
+function sceneFunc(scene) {
   WebMidi.enable().then(() => {
     let axeFxIn = WebMidi.getOutputById("2- AXE-FX II MIDI Out").channels[1];
     axeFxIn.sendControlChange(34, scene - 1);
   });
 }
 
-module.exports = { main, scene };
+module.exports = { main, sceneFunc };

@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const fs = require("fs");
-const { main } = require("./MainFunction");
+const { main, sceneFunc } = require("./MainFunction");
 const data = require("./DB/presets.json");
 
 app.use(cors());
@@ -37,6 +37,16 @@ app.post("/preset", (req, res) => {
       return res.send("success");
     }
   });
+});
+
+app.post("/scene", async (req, res) => {
+  const { scene } = req.body;
+  try {
+    await sceneFunc(scene);
+    return res.send("success");
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 });
 
 app.get("/presets", (req, res) => {

@@ -31,28 +31,49 @@ export default function Main() {
           console.log(err.message);
         }
       }
-    }
-  }
-
-  async function sceneFunc(e) {
-    if (e.which >= 48 && e.which <= 57) {
-      const sceneNumber = e.key;
-      const obj = {
-        scene: sceneNumber,
-      };
-      try {
-        await axios.post("http://localhost:8080/scene", obj);
-      } catch (err) {
-        console.log(err.message);
+    } else {
+      switch (e.key) {
+        case "z":
+          await axios.post("http://localhost:8080/scene", { scene: 1 });
+          break;
+        case "x":
+          await axios.post("http://localhost:8080/scene", { scene: 2 });
+          break;
+        case "c":
+          await axios.post("http://localhost:8080/scene", { scene: 3 });
+          break;
+        case "v":
+          await axios.post("http://localhost:8080/scene", { scene: 4 });
+          break;
+        case "b":
+          await axios.post("http://localhost:8080/scene", { scene: 5 });
+          break;
+        case "n":
+          await axios.post("http://localhost:8080/scene", { scene: 6 });
+          break;
+        case "m":
+          await axios.post("http://localhost:8080/scene", { scene: 7 });
+          break;
+        case ",":
+          await axios.post("http://localhost:8080/scene", { scene: 8 });
+          break;
       }
     }
   }
 
-  function spaceClick(e) {
-    if (e.which === 32) {
-      setIsPreset((prev) => !prev);
-    }
-  }
+  // async function sceneFunc(e) {
+  //   if (e.which >= 48 && e.which <= 57) {
+  //     const sceneNumber = e.key;
+  //     const obj = {
+  //       scene: sceneNumber,
+  //     };
+  //     try {
+  //       await axios.post("http://localhost:8080/scene", obj);
+  //     } catch (err) {
+  //       console.log(err.message);
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     (async () => {
@@ -60,23 +81,7 @@ export default function Main() {
       setFavArray(res.data);
     })();
     document.addEventListener("keypress", presetFunc);
-    document.addEventListener("keypress", spaceClick);
-    // document.removeEventListener("keypress", presetFunc);
   }, []);
-
-  // useEffect(() => {
-  //   console.log("switch");
-  //   if (isPreset) {
-  //     document.removeEventListener("keypress", presetFunc);
-  //     document.addEventListener("keypress", presetFunc);
-
-  //     // console.log(isPreset);
-  //     // document.removeEventListener("keypress", sceneFunc);
-  //   } else {
-  //     // console.log(isPreset);
-  //     // document.addEventListener("keypress", sceneFunc);
-  //   }
-  // }, [isPreset]);
 
   const onClickHandler = async () => {
     const obj = {
@@ -110,7 +115,6 @@ export default function Main() {
   return (
     <div>
       <h1>My axe fx 2 MIDI Controller</h1>
-      {isPreset ? <div>space bar is on</div> : <div>space bar is off</div>}
       <div id="input-container">
         <input
           className="input"

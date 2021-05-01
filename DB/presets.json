@@ -14,9 +14,9 @@
   { "name": "theDooo", "number": 7, "presetNumber": 21, "scene": 1 },
   { "name": "Plexi godnes", "number": 8, "presetNumber": 26, "scene": 1 },
   {
-    "name": "Mesa TriAxis Shimmer",
+    "name": "Bass",
     "number": 9,
-    "presetNumber": 24,
-    "scene": 2
+    "presetNumber": 3,
+    "scene": 1
   }
 ]

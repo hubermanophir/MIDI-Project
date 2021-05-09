@@ -8,12 +8,14 @@ const data = require("./DB/presets.json");
 app.use(cors());
 app.use(express.json());
 
+let MIDI_ID = "";
+
 //POST-------------------------------------------------------------------
 app.post("/change", async (req, res) => {
   console.log(req.body);
   const { presetNumber, scene } = req.body;
   try {
-    await main(presetNumber, scene);
+    await main(presetNumber, scene, MIDI_ID);
     return res.send("success");
   } catch (err) {
     console.log(err);
@@ -43,11 +45,16 @@ app.post("/preset", (req, res) => {
 app.post("/scene", async (req, res) => {
   const { scene } = req.body;
   try {
-    await sceneFunc(scene);
+    await sceneFunc(scene, MIDI_ID);
     return res.send("success");
   } catch (error) {
     return res.status(500).send(error);
   }
+});
+
+app.post("/device", (req, res) => {
+  MIDI_ID = req.body.id;
+  res.send("success");
 });
 
 //GET---------------------------------------------------------------------

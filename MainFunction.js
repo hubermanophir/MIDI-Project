@@ -1,16 +1,16 @@
 const { WebMidi } = require("webmidi");
 
-function main(presetNumber, scene) {
+function main(presetNumber, scene, id) {
   WebMidi.enable().then(() => {
-    let axeFxIn = WebMidi.getOutputById("2- AXE-FX II MIDI Out").channels[1];
+    let axeFxIn = WebMidi.getOutputById(id).channels[1];
     axeFxIn.setProgram(presetNumber + 1, 1);
     axeFxIn.sendControlChange(34, scene - 1);
   });
 }
 
-function sceneFunc(scene) {
+function sceneFunc(scene, id) {
   WebMidi.enable().then(() => {
-    let axeFxIn = WebMidi.getOutputById("2- AXE-FX II MIDI Out").channels[1];
+    let axeFxIn = WebMidi.getOutputById(id).channels[1];
     axeFxIn.sendControlChange(34, scene - 1);
   });
 }

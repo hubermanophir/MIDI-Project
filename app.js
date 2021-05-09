@@ -2,12 +2,13 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const fs = require("fs");
-const { main, sceneFunc } = require("./MainFunction");
+const { main, sceneFunc, getAllDevices } = require("./MainFunction");
 const data = require("./DB/presets.json");
 
 app.use(cors());
 app.use(express.json());
 
+//POST-------------------------------------------------------------------
 app.post("/change", async (req, res) => {
   console.log(req.body);
   const { presetNumber, scene } = req.body;
@@ -49,8 +50,15 @@ app.post("/scene", async (req, res) => {
   }
 });
 
+//GET---------------------------------------------------------------------
 app.get("/presets", (req, res) => {
   res.json(data);
+});
+
+app.get("/outputs", async (req, res) => {
+  const devices = await getAllDevices();
+  console.log(devices);
+  res.json(devices);
 });
 
 module.exports = app;

@@ -15,4 +15,13 @@ function sceneFunc(scene) {
   });
 }
 
-module.exports = { main, sceneFunc };
+function getAllDevices() {
+  return WebMidi.enable().then(() => {
+    const arr = WebMidi.outputs.map((output) => {
+      return output.id;
+    });
+    return arr;
+  });
+}
+
+module.exports = { main, sceneFunc, getAllDevices };

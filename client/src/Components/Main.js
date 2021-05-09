@@ -26,7 +26,7 @@ export default function Main() {
           scene: scene,
         };
         try {
-          await axios.post("http://localhost:8080/change", obj);
+          await axios.post("/change", obj);
         } catch (err) {
           console.log(err.message);
         }
@@ -34,28 +34,28 @@ export default function Main() {
     } else {
       switch (e.key) {
         case "z":
-          await axios.post("http://localhost:8080/scene", { scene: 1 });
+          await axios.post("/scene", { scene: 1 });
           break;
         case "x":
-          await axios.post("http://localhost:8080/scene", { scene: 2 });
+          await axios.post("/scene", { scene: 2 });
           break;
         case "c":
-          await axios.post("http://localhost:8080/scene", { scene: 3 });
+          await axios.post("/scene", { scene: 3 });
           break;
         case "v":
-          await axios.post("http://localhost:8080/scene", { scene: 4 });
+          await axios.post("/scene", { scene: 4 });
           break;
         case "b":
-          await axios.post("http://localhost:8080/scene", { scene: 5 });
+          await axios.post("/scene", { scene: 5 });
           break;
         case "n":
-          await axios.post("http://localhost:8080/scene", { scene: 6 });
+          await axios.post("/scene", { scene: 6 });
           break;
         case "m":
-          await axios.post("http://localhost:8080/scene", { scene: 7 });
+          await axios.post("/scene", { scene: 7 });
           break;
         case ",":
-          await axios.post("http://localhost:8080/scene", { scene: 8 });
+          await axios.post("/scene", { scene: 8 });
           break;
       }
     }
@@ -68,7 +68,7 @@ export default function Main() {
   //       scene: sceneNumber,
   //     };
   //     try {
-  //       await axios.post("http://localhost:8080/scene", obj);
+  //       await axios.post("/scene", obj);
   //     } catch (err) {
   //       console.log(err.message);
   //     }
@@ -77,7 +77,7 @@ export default function Main() {
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get("http://localhost:8080/presets");
+      const res = await axios.get("/presets");
       setFavArray(res.data);
     })();
     document.addEventListener("keypress", presetFunc);
@@ -91,7 +91,7 @@ export default function Main() {
       scene: Number(scene),
     };
     try {
-      await axios.post("http://localhost:8080/preset", obj);
+      await axios.post("/preset", obj);
     } catch (err) {
       console.log(err.message);
     }

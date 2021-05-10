@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const { main, sceneFunc, getAllDevices } = require('../MainFunction.js');
+const { main, sceneFunc, getAllDevices } = require("../MainFunction.js");
 const data = require("../DB/presets.json");
+
+let MIDI_ID = "";
 //POST-------------------------------------------------------------------
 router.post("/change", async (req, res) => {
   console.log(req.body);

@@ -8,6 +8,6 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", api);
 
-let MIDI_ID = "";
+
 
 module.exports = app;

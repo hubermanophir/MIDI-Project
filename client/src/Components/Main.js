@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FavoritePresets from "./FavoritePresets";
 
-export default function Main() {
+export default function Main({ device }) {
   const [preset, setPreset] = useState();
   const [scene, setScene] = useState();
   const [name, setName] = useState();
   const [bindKey, setBindKey] = useState();
   const [favArray, setFavArray] = useState([]);
-  const [isPreset, setIsPreset] = useState(true);
 
   async function presetFunc(e) {
     if (e.which >= 48 && e.which <= 57) {

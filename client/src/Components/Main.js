@@ -60,20 +60,6 @@ export default function Main({ device }) {
     }
   }
 
-  // async function sceneFunc(e) {
-  //   if (e.which >= 48 && e.which <= 57) {
-  //     const sceneNumber = e.key;
-  //     const obj = {
-  //       scene: sceneNumber,
-  //     };
-  //     try {
-  //       await axios.post("/api/scene", obj);
-  //     } catch (err) {
-  //       console.log(err.message);
-  //     }
-  //   }
-  // }
-
   useEffect(() => {
     (async () => {
       const res = await axios.get("/api/presets");
@@ -114,7 +100,7 @@ export default function Main({ device }) {
   return (
     <div>
       <h1>My axe fx 2 MIDI Controller</h1>
-      <div id="input-container">
+      {/* <div id="input-container">
         <input
           className="input"
           placeholder="preset name"
@@ -141,7 +127,7 @@ export default function Main({ device }) {
         />
 
         <button onClick={onClickHandler}>Add preset</button>
-      </div>
+      </div> */}
       <FavoritePresets setFavArray={setFavArray} favArray={favArray} />
     </div>
   );

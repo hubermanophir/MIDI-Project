@@ -13,6 +13,13 @@ export default function Login({ device, setDevice }) {
     })();
   }, []);
 
+  const confirmClickHandler = async () => {
+    const obj = {
+      id: device,
+    };
+    await axios.post("/api/device", obj);
+  };
+
   return (
     <div>
       <h1>Welcome</h1>
@@ -23,7 +30,7 @@ export default function Login({ device, setDevice }) {
         device={device}
       />
       <Link to="/main">
-        <button>confirm</button>
+        <button onClick={confirmClickHandler}>confirm</button>
       </Link>
     </div>
   );

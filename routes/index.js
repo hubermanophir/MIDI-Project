@@ -10,7 +10,7 @@ router.post("/change", async (req, res) => {
   console.log(req.body);
   const { presetNumber, scene } = req.body;
   try {
-    await main(presetNumber, scene);
+    await main(presetNumber, scene, MIDI_ID);
     return res.send("success");
   } catch (err) {
     console.log(err);
@@ -40,7 +40,7 @@ router.post("/preset", (req, res) => {
 router.post("/scene", async (req, res) => {
   const { scene } = req.body;
   try {
-    await sceneFunc(scene);
+    await sceneFunc(scene, MIDI_ID);
     return res.send("success");
   } catch (error) {
     return res.status(500).send(error);

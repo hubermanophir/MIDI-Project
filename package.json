@@ -21,9 +21,14 @@
   "homepage": "https://github.com/hubermanophir/MIDI-Project#readme",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
+    "react-edit-text": "^4.0.3",
     "webmidi": "^3.0.0-alpha.5"
+  },
+  "devDependencies": {
+    "@types/react-edit-text": "^4.0.0"
   }
 }
